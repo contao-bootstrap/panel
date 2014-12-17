@@ -1,0 +1,56 @@
+{
+    "name":"contao-bootstrap/panel",
+    "description":"Bootstrap panel component for Contao CMS",
+    "keywords":["bootstrap", "components", "contao", "panel"],
+    "type":"contao-module",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"David Molineus",
+            "email":"mail@netzmacht.de",
+            "homepage":"http://www.netzmacht.de",
+            "role":"Project leader"
+        }
+    ],
+    "support":{
+        "email":"mail@netzmacht.de",
+        "issues":"https://github.com/contao-bootstrap/panel/issues",
+        "wiki":"http://contao-bootstrap.netzmacht.de",
+        "source":"https://github.com/contao-bootstrap/panel"
+    },
+    "require":{
+        "php":">=5.3.4",
+        "contao-community-alliance/composer-plugin": "~2.0",
+        "contao/core":">=3.2,<3.5-dev",
+        "contao-bootstrap/core": "~1.0",
+        "bit3/contao-meta-palettes":"~1.4"
+    },
+    "require-dev": {
+        "netzmacht/contao-build-tools": "~1.0.x"
+    },
+    "conflict": {
+        "netzmacht/contao-bootstrap": "*",
+        "contao-bootstrap/components": "*"
+    },
+    "autoload": {
+        "psr-0": { "Netzmacht\\Bootstrap\\Panel": "src/" }
+    },
+    "extra":{
+        "contao": {
+            "sources":{
+                "module": "system/modules/bootstrap-panel"
+            },
+            "transifex": {
+                "project": "contao-bootstrap",
+                "prefix": "panel-",
+                "languages_cto": "module/languages",
+                "languages_tx": ".tx"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
