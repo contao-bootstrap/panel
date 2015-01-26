@@ -1,10 +1,12 @@
 <?php
+
 /**
- * Created by JetBrains PhpStorm.
- * User: david
- * Date: 29.08.13
- * Time: 12:38
- * To change this template use File | Settings | File Templates.
+ * @package    dev
+ * @author     David Molineus <david.molineus@netzmacht.de>
+ * @copyright  2014 netzmacht creative David Molineus
+ * @license    LGPL 3.0
+ * @filesource
+ *
  */
 
 namespace Netzmacht\Bootstrap\Panel;

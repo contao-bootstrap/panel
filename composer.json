@@ -23,10 +23,10 @@
         "contao-community-alliance/composer-plugin": "~2.0",
         "contao/core":">=3.2,<3.5-dev",
         "contao-bootstrap/core": "~1.0",
-        "bit3/contao-meta-palettes":"~1.4"
+        "contao-community-alliance/meta-palettes":"~1.4"
     },
     "require-dev": {
-        "netzmacht/contao-build-tools": "~1.0.x"
+        "netzmacht/contao-build-tools": "~1.1"
     },
     "conflict": {
         "netzmacht/contao-bootstrap": "*",

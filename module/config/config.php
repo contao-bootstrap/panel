@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @package    dev
+ * @author     David Molineus <david.molineus@netzmacht.de>
+ * @copyright  2014 netzmacht creative David Molineus
+ * @license    LGPL 3.0
+ * @filesource
+ *
+ */
 // Content elements
 $GLOBALS['TL_CTE']['accordion']['bootstrap_accordionGroupStart'] = 'Netzmacht\Bootstrap\PanelAccordionGroup';
 $GLOBALS['TL_CTE']['accordion']['bootstrap_accordionGroupEnd']   = 'Netzmacht\Bootstrap\Panel\AccordionGroup';
