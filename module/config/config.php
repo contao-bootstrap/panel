@@ -9,7 +9,7 @@
  *
  */
 // Content elements
-$GLOBALS['TL_CTE']['accordion']['bootstrap_accordionGroupStart'] = 'Netzmacht\Bootstrap\PanelAccordionGroup';
+$GLOBALS['TL_CTE']['accordion']['bootstrap_accordionGroupStart'] = 'Netzmacht\Bootstrap\Panel\AccordionGroup';
 $GLOBALS['TL_CTE']['accordion']['bootstrap_accordionGroupEnd']   = 'Netzmacht\Bootstrap\Panel\AccordionGroup';
 
 $GLOBALS['TL_WRAPPERS']['start'][] = 'bootstrap_accordionGroupStart';

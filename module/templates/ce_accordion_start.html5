@@ -1,4 +1,4 @@
-<?php $group = \Netzmacht\Bootstrap\Tab\Helper::preparePanel($this); ?>
+<?php $group = \Netzmacht\Bootstrap\Panel\Helper::preparePanel($this); ?>
 
 <section class="<?php echo $this->class; ?> panel block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 

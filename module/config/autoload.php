@@ -10,6 +10,8 @@
  */
 TemplateLoader::addFiles(
     array (
+        'ce_accordion'       => 'system/modules/bootstrap-panel/templates',
+        'ce_accordion_start' => 'system/modules/bootstrap-panel/templates',
         'ce_accordion_group' => 'system/modules/bootstrap-panel/templates',
     )
 );
