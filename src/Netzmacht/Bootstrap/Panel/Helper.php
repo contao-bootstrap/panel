@@ -77,8 +77,8 @@ class Helper
      */
     public static function setPanelClass(\Template $template)
     {
-        if (!$template->class) {
-            $template->class = 'panel panel-default';
+        if (strpos($template->class, 'panel-') === false) {
+            $template->class = 'panel-default';
         }
     }
 }
