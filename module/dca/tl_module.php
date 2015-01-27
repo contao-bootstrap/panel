@@ -211,7 +211,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_module'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_module'],
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('Netzmacht\Bootstrap\Components\Contao\DataContainer\Module', 'getAllModules'),
+	'options_callback'        => array('Netzmacht\Bootstrap\Panel\Dca\Module', 'getAllModules'),
 	'eval'                    => array('chosen'=>true, 'tl_class' => 'w50'),
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
@@ -221,7 +221,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_article'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_article'],
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('Netzmacht\Bootstrap\Components\Contao\DataContainer\Module', 'getAllArticles'),
+	'options_callback'        => array('Netzmacht\Bootstrap\Panel\Dca\Module', 'getAllArticles'),
 	'eval'                    => array('chosen'=>true, 'tl_class' => 'w50'),
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
@@ -242,7 +242,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_modalTemplate'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_modalTemplate'],
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('Netzmacht\Bootstrap\Core\Contao\DataContainer\Module', 'getTemplates'),
+	'options_callback'        => array('Netzmacht\Bootstrap\Panel\Dca\Module', 'getTemplates'),
 	'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
 	'eval'                    => array('templateThemeId' => 'pid', 'chosen' => true, 'tl_class' => 'w50'),
 	'sql'                     => "varchar(64) NOT NULL default ''",
@@ -301,7 +301,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = array
 			(
 				'label'            => $GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_module'],
 				'inputType'        => 'select',
-				'options_callback' => array('Netzmacht\Bootstrap\Components\Contao\DataContainer\Module', 'getAllModules'),
+				'options_callback' => array('Netzmacht\Bootstrap\Panel\Dca\Module', 'getAllModules'),
 				'eval'             => array('style' => 'width: 300px', 'includeBlankOption' => true, 'chosen' => true),
 			),
 
