@@ -56,15 +56,19 @@ class Helper
     {
         $group = static::getGroup();
 
+        if ($template->accordion !== 'accordion') {
+            return;
+        }
+
         if ($group) {
             if (Bootstrap::getConfigVar('runtime.accordion-group-first')) {
-                $template->accordion = 'collapse in';
+                $template->accordion = 'collapse';
                 Bootstrap::setConfigVar('runtime.accordion-group-first', false);
             } else {
-                $template->accordion = 'collapse';
+                $template->accordion = ($template->accordion == 'accordion' ? 'collapse' : $template->accordion);
             }
         } else {
-            $template->accordion = $template->accordion == 'accordion' ? 'collapse' : $template->accordion;
+            $template->accordion = ($template->accordion == 'accordion' ? 'collapse' : $template->accordion);
         }
     }
 
