@@ -37,12 +37,10 @@ class AccordionGroup extends Wrapper
     {
         if ($this->wrapper->isTypeOf(Wrapper\Helper::TYPE_START)) {
             Bootstrap::setConfigVar('runtime.accordion-group', 'accordion-group-' . $this->id);
-            Bootstrap::setConfigVar('runtime.accordion-group-first', true);
 
             $this->Template->groupId = Bootstrap::getConfigVar('runtime.accordion-group');
         } else {
             Bootstrap::setConfigVar('runtime.accordion-group', null);
-            Bootstrap::setConfigVar('runtime.accordion-group-first', null);
         }
     }
 }

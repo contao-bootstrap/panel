@@ -54,21 +54,16 @@ class Helper
      */
     public static function setAccordionState(\Template $template)
     {
-        $group = static::getGroup();
-
-        if ($template->accordion !== 'accordion') {
-            return;
+        if ($template->accordion === 'accordion') {
+            $template->accordion = 'collapse';
         }
 
-        if ($group) {
-            if (Bootstrap::getConfigVar('runtime.accordion-group-first')) {
-                $template->accordion = 'collapse';
-                Bootstrap::setConfigVar('runtime.accordion-group-first', false);
-            } else {
-                $template->accordion = ($template->accordion == 'accordion' ? 'collapse' : $template->accordion);
+        if ($template->bootstrap_collapseIn) {
+            if (strpos($template->accordion, 'collapse') == false) {
+                $template->accordion .= ' collapse';
             }
-        } else {
-            $template->accordion = ($template->accordion == 'accordion' ? 'collapse' : $template->accordion);
+
+            $template->accordion .= ' in';
         }
     }
 
