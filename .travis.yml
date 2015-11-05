@@ -8,9 +8,18 @@ addons:
 language: php
 
 php:
+<<<<<<< HEAD
   - "7.3"
   - "7.2"
   - "7.1"
+=======
+  - "5.3"
+  - "5.4"
+  - "5.5"
+  - "5.6"
+  - "7.0"
+  - "nightly"
+>>>>>>> Get phpcq work again.
 
 env:
   - CONTAO_VERSION=contao/core-bundle ~4.4.0
@@ -19,6 +28,11 @@ env:
 
 matrix:
   exclude:
+<<<<<<< HEAD
+=======
+    - php: "5.3"
+      env: CONTAO_VERSION=~3.5.0
+>>>>>>> Get phpcq work again.
 
 sudo: false
 
@@ -30,6 +44,14 @@ before_script:
 
 script: ant -keep-going
 
+<<<<<<< HEAD
+=======
+allow_failure:
+    - php: "7.0"
+    - php: "nightly"
+
+# Hack to make things work again - we can not use a shallow repository.
+>>>>>>> Get phpcq work again.
 git:
   depth: 2147483647
 
