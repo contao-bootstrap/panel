@@ -2,7 +2,7 @@
 
 <section class="<?php echo $this->class; ?> panel block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 
-  <div class="panel-heading <?php echo $this->toggler; ?>"<?php if ($this->headlineStyle): ?> style="<?php echo $this->headlineStyle; ?>"<?php endif; ?> data-toggle="collapse"<?php if($group): ?> data-parent="#<?php echo $group; ?>"<?php endif; ?> data-target="#accordion-<?php echo $this->id; ?>">
+  <div class="panel-heading <?php echo $this->toggler; ?>"<?php if ($this->headlineStyle): ?> style="<?php echo $this->headlineStyle; ?>"<?php endif; ?> data-toggle="collapse"<?php if($group): ?> data-parent="#<?php echo $group; ?>"<?php endif; ?> data-target="#accordion-<?php echo $this->id; ?>"<?php if($this->bootstrap_collapseIn): ?> aria-expanded="true"<?php endif; ?>>
     <div class="panel-title">
       <?php echo $this->headline; ?>
     </div>
