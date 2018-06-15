@@ -40,7 +40,7 @@
                 "languages_tx": ".tx"
             }
         },
-        "contao-manager-plugin": "ContaoBootstrap\\Grid\\ContaoManager\\Plugin",
+        "contao-manager-plugin": "ContaoBootstrap\\Panel\\ContaoManager\\Plugin",
         "branch-alias": {
             "dev-master": "1.0.x-dev",
             "dev-develop": "1.1.x-dev",
