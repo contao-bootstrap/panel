@@ -9,7 +9,7 @@
                     aria-controls="<?= $this->collapseId ?>">
                 <?= $this->headline ?>
             </button>
-        </<?$this->hl ?>>
+        </<?= $this->hl ?>>
     </div>
 
     <div id="<?= $this->collapseId ?>"
