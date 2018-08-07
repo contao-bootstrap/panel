@@ -11,3 +11,32 @@ This extension provides Bootstrap integration into Contao.
 
 Contao-Bootstrap is a modular integration. This extension provides the bootstrap panel into Contao. It uses the default
 accordeon element of Contao and extends it with an accordeon group element.
+
+
+Changelog
+---------
+
+See [changelog](CHANGELOG.md)
+
+
+Requirements
+------------
+
+ - PHP 7.1
+ - Contao ~4.4
+
+
+Install
+-------
+
+### Managed edition
+
+When using the managed edition it's pretty simple to install the package. Just search for the package in the
+Contao Manager and install it. Alternatively you can use the CLI.  
+
+```bash
+# Using the contao manager
+$ php contao-manager.phar.php composer require contao-bootstrap/panel~2.0
+
+# Using composer directly
+$ php composer.phar require contao-bootstrap/panel~2.0
