@@ -2,7 +2,7 @@
     "name":"contao-bootstrap/panel",
     "description":"Bootstrap panel component for Contao CMS",
     "keywords":["bootstrap", "components", "contao", "panel"],
-    "type":"contao-module",
+    "type":"contao-bundle",
     "license":"LGPL-3.0-or-later",
     "authors":[
         {
