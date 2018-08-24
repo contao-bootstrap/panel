@@ -27,7 +27,7 @@ use ContaoBootstrap\Panel\ContaoBootstrapPanelBundle;
  *
  * @package ContaoBootstrap\Panel\ContaoManager
  */
-class Plugin implements BundlePluginInterface
+final class Plugin implements BundlePluginInterface
 {
     /**
      * {@inheritdoc}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelElementFactory" >
+            <argument type="service" id="templating" />
+            <argument type="service" id="contao_bootstrap.core.helper.color_rotate" />
+            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher" />
+            <tag name="netzmacht.contao_toolkit.component.content_element_factory" />
+            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_start" />
+            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_end" />
+            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_start" />
+            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_end" />
+        </service>
+    </services>
+</container>

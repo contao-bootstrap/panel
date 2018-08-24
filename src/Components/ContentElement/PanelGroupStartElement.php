@@ -18,22 +18,26 @@ namespace ContaoBootstrap\Panel\Components\ContentElement;
 /**
  * Class PanelGroupStartElement
  */
-class PanelGroupStartElement extends AbstractPanelElement
+final class PanelGroupStartElement extends AbstractPanelElement
 {
     /**
      * Template name.
      *
      * @var string
      */
-    protected $strTemplate = 'ce_bs_panel_group_start';
+    protected $templateName = 'ce_bs_panel_group_start';
 
     /**
      * {@inheritdoc}
      */
-    protected function compile()
+    protected function prepareTemplateData(array $data): array
     {
-        if ($this->cssID[0] == '') {
-            $this->arrData['cssID'][0] = 'panel-group-' . $this->id;
+        $data = parent::prepareTemplateData($data);
+
+        if ($data['cssId'] == '') {
+            $data['cssId'] = 'panel-group-' . $this->get('id');
         }
+
+        return $data;
     }
 }

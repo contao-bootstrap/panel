@@ -2,6 +2,14 @@
 Changelog
 =========
 
+2.0.3 (2018-08-24)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.0.2...2.0.3)
+
+ - Require netzmacht/contao-toolkit and rewrite content elements to achieve Symfony v4 support.
+ - Mark classes as final. Infrastructure classes are not meant to be inherited.
+
 2.0.2 (2018-08-07)
 ------------------
 
