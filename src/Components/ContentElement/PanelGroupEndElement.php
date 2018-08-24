@@ -18,21 +18,14 @@ namespace ContaoBootstrap\Panel\Components\ContentElement;
 /**
  * Class PanelGroupStopElement
  */
-class PanelGroupEndElement extends AbstractPanelElement
+final class PanelGroupEndElement extends AbstractPanelElement
 {
     /**
      * Template name.
      *
      * @var string
      */
-    protected $strTemplate = 'ce_bs_panel_group_end';
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function compile()
-    {
-    }
+    protected $templateName = 'ce_bs_panel_group_end';
 
     /**
      * {@inheritdoc}

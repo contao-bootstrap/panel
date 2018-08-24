@@ -20,26 +20,29 @@ use Contao\StringUtil;
 /**
  * Class PanelStartElement
  */
-class PanelStartElement extends AbstractPanelElement
+final class PanelStartElement extends AbstractPanelElement
 {
     /**
      * Template name.
      *
      * @var string
      */
-    protected $strTemplate = 'ce_bs_panel_start';
+    protected $templateName = 'ce_bs_panel_start';
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function compile()
+    protected function prepareTemplateData(array $data): array
     {
-        $cssId = $this->cssID[0] ?: 'panel-' . $this->id;
+        $data  = parent::prepareTemplateData($data);
+        $cssId = $data['cssId'] ?: 'panel-' . $this->get('id');
 
-        $this->Template->expaned    = (bool) $this->bs_expanded;
-        $this->Template->headingId  = $cssId . '-heading';
-        $this->Template->collapseId = $cssId . '-collapse';
-        $this->Template->groupId    = $this->getGroupId();
+        $data['expanded']   = (bool) $this->get('bs_expanded');
+        $data['headingId']  = $cssId . '-heading';
+        $data['collapseId'] = $cssId . '-collapse';
+        $data['groupId']    = $this->getGroupId();
+
+        return $data;
     }
 
     /**

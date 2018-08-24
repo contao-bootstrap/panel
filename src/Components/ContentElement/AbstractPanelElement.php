@@ -15,19 +15,64 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Panel\Components\ContentElement;
 
-use Contao\BackendTemplate;
-use Contao\ContentElement;
 use Contao\ContentModel;
+use Contao\Database\Result;
+use Contao\Model;
+use Contao\Model\Collection;
+use ContaoBootstrap\Core\Helper\ColorRotate;
+use Netzmacht\Contao\Toolkit\Component\ContentElement\AbstractContentElement;
+use Netzmacht\Contao\Toolkit\Exception\InvalidArgumentException;
+use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
+use Netzmacht\Contao\Toolkit\View\Template\TemplateReference as ToolkitTemplateReference;
+use Symfony\Component\Templating\EngineInterface as TemplateEngine;
 
 /**
  * Class AbstractPanelElement
  */
-abstract class AbstractPanelElement extends ContentElement
+abstract class AbstractPanelElement extends AbstractContentElement
 {
+    /**
+     * Color rotate.
+     *
+     * @var ColorRotate
+     */
+    private $colorRotate;
+
+    /**
+     * Request scope matcher.
+     *
+     * @var RequestScopeMatcher
+     */
+    private $scopeMatcher;
+
+    /**
+     * AbstractContentElement constructor.
+     *
+     * @param Model|Collection|Result $model          Object model or result.
+     * @param TemplateEngine          $templateEngine Template engine.
+     * @param ColorRotate             $colorRotate    ColorRotate helper.
+     * @param RequestScopeMatcher     $scopeMatcher   Request scope matcher.
+     * @param string                  $column         Column.
+     *
+     * @throws InvalidArgumentException When model does not have a row method.
+     */
+    public function __construct(
+        $model,
+        TemplateEngine $templateEngine,
+        ColorRotate $colorRotate,
+        RequestScopeMatcher $scopeMatcher,
+        string $column = 'main'
+    ) {
+        parent::__construct($model, $templateEngine, $column);
+
+        $this->colorRotate  = $colorRotate;
+        $this->scopeMatcher = $scopeMatcher;
+    }
+
     /**
      * {@inheritdoc}
      */
-    public function generate()
+    public function generate(): string
     {
         if ($this->isBackendRequest()) {
             return $this->renderBackendView();
@@ -45,21 +90,28 @@ abstract class AbstractPanelElement extends ContentElement
      */
     protected function renderBackendView(): string
     {
-        $template = new BackendTemplate('be_bs_panel');
+        $group = $this->getPanelGroup();
+        $data  = [];
 
-        $colorRotate = static::getContainer()->get('contao_bootstrap.core.helper.color_rotate');
-        $group       = $this->getPanelGroup();
-
-        if ($group && $group !== $this->objModel) {
-            $template->group = $group->bs_panel_name;
-            $template->color = $colorRotate->getColor('ce:' . $group->id);
-            $template->title = $this->headline;
+        if ($group && $group !== $this->getModel()) {
+            $data['group'] = $group->bs_panel_name;
+            $data['color'] = $this->rotateColor('ce:' . $group->id);
+            $data['title'] = $this->get('headline');
         } else {
-            $template->color = $colorRotate->getColor('ce:' . $this->id);
-            $template->group = $this->type === 'bs_panel_group_start' ? $this->bs_panel_name : $this->headline;
+            $data['color'] = $this->rotateColor('ce:' . $this->get('id'));
+            $data['group'] = $this->get('type') === 'bs_panel_group_start'
+                ? $this->get('bs_panel_name')
+                : $this->get('headline');
         }
 
-        return $template->parse();
+        return $this->render(
+            new ToolkitTemplateReference(
+                'be_bs_panel',
+                'html5',
+                ToolkitTemplateReference::SCOPE_FRONTEND
+            ),
+            $data
+        );
     }
 
     /**
@@ -69,10 +121,7 @@ abstract class AbstractPanelElement extends ContentElement
      */
     protected function isBackendRequest(): bool
     {
-        $scopeMatcher   = static::getContainer()->get('contao.routing.scope_matcher');
-        $currentRequest = static::getContainer()->get('request_stack')->getCurrentRequest();
-
-        return $scopeMatcher->isBackendRequest($currentRequest);
+        return $this->scopeMatcher->isBackendRequest();
     }
 
     /**
@@ -90,14 +139,14 @@ abstract class AbstractPanelElement extends ContentElement
                 'tl_content.sorting < ?',
             ],
             [
-                $this->ptable,
-                $this->pid,
+                $this->get('ptable'),
+                $this->get('pid'),
                 'bs_panel_group_start',
                 'bs_panel_group_end',
-                $this->sorting
+                $this->get('sorting'),
             ],
             [
-                'order' => 'tl_content.sorting DESC'
+                'order' => 'tl_content.sorting DESC',
             ]
         );
 
@@ -106,5 +155,17 @@ abstract class AbstractPanelElement extends ContentElement
         }
 
         return null;
+    }
+
+    /**
+     * Rotate the color for an identifier.
+     *
+     * @param string $identifier The color identifier.
+     *
+     * @return string
+     */
+    protected function rotateColor(string $identifier): string
+    {
+        return $this->colorRotate->getColor($identifier);
     }
 }

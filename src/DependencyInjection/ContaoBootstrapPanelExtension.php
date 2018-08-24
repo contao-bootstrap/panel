@@ -25,7 +25,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *
  * @package ContaoBootstrap\Panel\DependencyInjection
  */
-class ContaoBootstrapPanelExtension extends Extension
+final class ContaoBootstrapPanelExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -38,5 +38,6 @@ class ContaoBootstrapPanelExtension extends Extension
         );
 
         $loader->load('listener.xml');
+        $loader->load('services.xml');
     }
 }
