@@ -25,7 +25,7 @@ use Contao\DataContainer;
  *
  * @package ContaoBootstrap\Panel\EventListener\Dca
  */
-class ContentDcaListener
+final class ContentDcaListener
 {
     /**
      * Contao framework.
