@@ -1,4 +1,4 @@
-<div class="card">
+<div class="<?= $this->class ?> card">
     <div class="card-header" id="<?= $this->headingId ?>">
         <<?= $this->hl ?> class="mb-0">
             <button class="btn btn-link<?php if (!$this->expanded): ?> collapsed<?php endif ?>"
