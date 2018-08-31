@@ -34,8 +34,8 @@ final class PanelGroupStartElement extends AbstractPanelElement
     {
         $data = parent::prepareTemplateData($data);
 
-        if ($data['cssId'] == '') {
-            $data['cssId'] = 'panel-group-' . $this->get('id');
+        if ($data['cssID'] == '') {
+            $data['cssID'] = ' id="panel-group-' . $this->get('id') . '"';
         }
 
         return $data;
