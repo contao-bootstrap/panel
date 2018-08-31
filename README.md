@@ -40,3 +40,28 @@ $ php contao-manager.phar.php composer require contao-bootstrap/panel~2.0
 
 # Using composer directly
 $ php composer.phar require contao-bootstrap/panel~2.0
+
+```
+
+### Symfony application
+
+If you use Contao in a symfony application without contao/manager-bundle, you have to register following bundles 
+manually:
+
+```php
+
+class AppKernel
+{
+    public function registerBundles()
+    {
+        $bundles = [
+            // ...
+            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('metapalettes', $this->getRootDir()),
+            new Netzmacht\Contao\Toolkit\Bundle\NetzmachtContaoToolkitBundle(),
+            new ContaoBootstrap\Core\ContaoBootstrapCoreBundle(),
+            new ContaoBootstrap\Grid\ContaoBootstrapPanelBundle()
+        ];
+    }
+}
+
+```
