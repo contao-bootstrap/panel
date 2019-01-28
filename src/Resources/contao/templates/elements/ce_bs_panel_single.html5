@@ -1,0 +1,33 @@
+<div class="<?= $this->class ?> card"<?= $this->cssID ?>>
+    <div class="card-header" id="<?= $this->headingId ?>">
+        <<?= $this->hl ?> class="mb-0">
+            <button class="btn btn-link<?php if (!$this->expanded): ?> collapsed<?php endif ?>"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#<?= $this->collapseId ?>"
+                    aria-expanded="<?= $this->expanded ? 'true' : 'false' ?>"
+                    aria-controls="<?= $this->collapseId ?>">
+                <?= $this->headline ?>
+            </button>
+        </<?= $this->hl ?>>
+    </div>
+
+    <div id="<?= $this->collapseId ?>"
+         class="collapse<?php if ($this->expanded): ?> show<?php endif ?>"
+         aria-labelledby="<?= $this->headingId ?>"
+         <?php if ($this->groupId): ?>data-parent="#<?= $this->groupId ?>"<?php endif ?>>
+        <div class="card-body">
+            <?php if (!$this->addBefore): ?>
+                <?= $this->text ?>
+            <?php endif; ?>
+
+            <?php if ($this->addImage): ?>
+                <?php $this->insert('image', $this->arrData); ?>
+            <?php endif; ?>
+
+            <?php if ($this->addBefore): ?>
+                <?= $this->text ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
