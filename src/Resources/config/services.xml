@@ -13,6 +13,7 @@
             <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_end" />
             <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_start" />
             <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_end" />
+            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_single" />
         </service>
     </services>
 </container>

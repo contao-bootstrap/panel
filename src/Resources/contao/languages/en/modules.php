@@ -24,3 +24,5 @@ $GLOBALS['TL_LANG']['CTE']['bs_panel_start'][0]       = 'Panel start';
 $GLOBALS['TL_LANG']['CTE']['bs_panel_start'][1]       = 'Panel start element';
 $GLOBALS['TL_LANG']['CTE']['bs_panel_end'][0]         = 'Panel end';
 $GLOBALS['TL_LANG']['CTE']['bs_panel_end'][1]         = 'Panel end element';
+$GLOBALS['TL_LANG']['CTE']['bs_panel_single'][0]      = 'Panel single';
+$GLOBALS['TL_LANG']['CTE']['bs_panel_single'][1]      = 'Panel single element';

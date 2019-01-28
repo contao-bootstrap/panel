@@ -39,6 +39,7 @@ final class PanelElementFactory implements ComponentFactory
         'bs_panel_group_end'   => PanelGroupEndElement::class,
         'bs_panel_start'       => PanelStartElement::class,
         'bs_panel_end'         => PanelEndElement::class,
+        'bs_panel_single'      => PanelSingleElement::class,
     ];
 
     /**

@@ -50,6 +50,17 @@ $GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_end'] = [
     'invisible'      => ['invisible', 'start', 'stop'],
 ];
 
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_single'] = [
+    'type'           => ['type', 'headline'],
+    'text'           => ['text'],
+    'image'          => ['addImage'],
+    'config'         => ['bs_panel_group', 'bs_expanded'],
+    'template'       => [':hide', 'customTpl'],
+    'protected'      => [':hide', 'protected'],
+    'expert'         => [':hide', 'guests', 'cssID'],
+    'invisible'      => ['invisible', 'start', 'stop'],
+];
+
 /*
  * Fields
  */
