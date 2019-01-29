@@ -7,8 +7,6 @@
     "Contao\\ManagerPlugin\\Bundle\\Config\\BundleConfig",
     "Contao\\ManagerPlugin\\Bundle\\Parser\\ParserInterface",
     "Contao\\ManagerPlugin\\Config\\ContainerBuilder",
-    "Contao\\ManagerPlugin\\Config\\ExtensionPluginInterface",
-    "Contao\\ManagerPlugin\\Dependency\\DependentPluginInterface",
-    "TL_ERROR"
+    "Contao\\ManagerPlugin\\Config\\ExtensionPluginInterface"
   ]
 }
