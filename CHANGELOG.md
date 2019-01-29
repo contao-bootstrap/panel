@@ -2,6 +2,20 @@
 Changelog
 =========
 
+2.1.0 (2019-01-29)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.0.4...2.1.0)
+
+### Added
+
+ - Add new class `ContaoBootstrap\Panel\Components\ContentElement\AbstractPanelStartElement`
+ - Add new panel single content element
+ 
+### Fixed
+
+ - Fix travis configuration
+
 2.0.4 (2018-08-31)
 ------------------
 

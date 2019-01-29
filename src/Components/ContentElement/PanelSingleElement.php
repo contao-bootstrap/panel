@@ -16,14 +16,14 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Panel\Components\ContentElement;
 
 /**
- * Class PanelStartElement
+ * Class PanelGroupStartElement
  */
-final class PanelStartElement extends AbstractPanelStartElement
+final class PanelSingleElement extends AbstractPanelStartElement
 {
     /**
      * Template name.
      *
      * @var string
      */
-    protected $templateName = 'ce_bs_panel_start';
+    protected $templateName = 'ce_bs_panel_single';
 }

@@ -1,28 +1,27 @@
 {
-    "name":"contao-bootstrap/panel",
-    "description":"Bootstrap panel component for Contao CMS",
-    "keywords":["bootstrap", "components", "contao", "panel"],
-    "type":"contao-bundle",
-    "license":"LGPL-3.0-or-later",
-    "authors":[
+    "name": "contao-bootstrap/panel",
+    "type": "contao-bundle",
+    "description": "Bootstrap panel component for Contao CMS",
+    "keywords": [
+        "bootstrap",
+        "components",
+        "contao",
+        "panel"
+    ],
+    "license": "LGPL-3.0-or-later",
+    "authors": [
         {
-            "name":"David Molineus",
-            "email":"mail@netzmacht.de",
-            "homepage":"https://netzmacht.de",
-            "role":"Developer"
+            "name": "David Molineus",
+            "email": "mail@netzmacht.de",
+            "homepage": "https://netzmacht.de",
+            "role": "Developer"
         }
     ],
-    "support":{
-        "email":"mail@netzmacht.de",
-        "issues":"https://github.com/contao-bootstrap/panel/issues",
-        "wiki":"http://contao-bootstrap.netzmacht.de",
-        "source":"https://github.com/contao-bootstrap/panel"
-    },
-    "require":{
-        "php":">=7.1",
-        "contao/core-bundle":"^4.4",
+    "require": {
+        "php": ">=7.1",
         "contao-bootstrap/core": "^2.0",
-        "contao-community-alliance/meta-palettes":"^1.11 || ^2.0",
+        "contao-community-alliance/meta-palettes": "^1.11 || ^2.0",
+        "contao/core-bundle": "^4.4",
         "netzmacht/contao-toolkit": "^3.0",
         "symfony/config": "^3.3 || ^4.0",
         "symfony/dependency-injection": "^3.3 || ^4.0",
@@ -31,12 +30,15 @@
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
+        "php-http/guzzle6-adapter": "^1.1",
         "phpcq/all-tasks": "^1.2"
     },
-    "autoload": {
-        "psr-4": { "ContaoBootstrap\\Panel\\": "src/" }
-    },
-    "extra":{
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1.x-dev",
+            "dev-develop": "2.2.x-dev",
+            "dev-support/1.0.x": "1.0.x-dev"
+        },
         "contao": {
             "transifex": {
                 "project": "contao-bootstrap",
@@ -45,11 +47,17 @@
                 "languages_tx": ".tx"
             }
         },
-        "contao-manager-plugin": "ContaoBootstrap\\Panel\\ContaoManager\\Plugin",
-        "branch-alias": {
-            "dev-master": "2.0.x-dev",
-            "dev-develop": "2.1.x-dev",
-            "dev-support/1.0.x": "1.0.x-dev"
+        "contao-manager-plugin": "ContaoBootstrap\\Panel\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "ContaoBootstrap\\Panel\\": "src/"
         }
+    },
+    "support": {
+        "email": "mail@netzmacht.de",
+        "issues": "https://github.com/contao-bootstrap/panel/issues",
+        "wiki": "http://contao-bootstrap.netzmacht.de",
+        "source": "https://github.com/contao-bootstrap/panel"
     }
 }
