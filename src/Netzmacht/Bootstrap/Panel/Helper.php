@@ -64,6 +64,8 @@ class Helper
             }
 
             $template->accordion .= ' in';
+        } else {
+            $template->class = trim($template->class . ' collapsed');
         }
     }
 
