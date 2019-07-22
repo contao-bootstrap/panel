@@ -6,7 +6,7 @@
  * @package    contao-bootstrap
  * @subpackage Panel
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
+ * @copyright  2014-2019 netzmacht David Molineus. All rights reserved.
  * @license    https://github.com/contao-bootstrap/panel/blob/master/LICENSE LGPL 3.0-or-later
  * @filesource
  */
@@ -19,6 +19,7 @@ use ContaoBootstrap\Core\Helper\ColorRotate;
 use Netzmacht\Contao\Toolkit\Component\Component;
 use Netzmacht\Contao\Toolkit\Component\ComponentFactory;
 use Netzmacht\Contao\Toolkit\Component\Exception\ComponentNotFound;
+use Netzmacht\Contao\Toolkit\Data\Model\RepositoryManager;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Symfony\Component\Templating\EngineInterface as TemplateEngine;
 
@@ -64,26 +65,36 @@ final class PanelElementFactory implements ComponentFactory
     private $scopeMatcher;
 
     /**
+     * Repository manager.
+     *
+     * @var RepositoryManager
+     */
+    private $repositoryManager;
+
+    /**
      * PanelElementFactory constructor.
      *
-     * @param TemplateEngine      $templateEngine The template engine.
-     * @param ColorRotate         $colorRotate    Color rotate service.
-     * @param RequestScopeMatcher $scopeMatcher   Request scope matcher.
+     * @param TemplateEngine      $templateEngine    The template engine.
+     * @param ColorRotate         $colorRotate       Color rotate service.
+     * @param RequestScopeMatcher $scopeMatcher      Request scope matcher.
+     * @param RepositoryManager   $repositoryManager Repository manager.
      */
     public function __construct(
         TemplateEngine $templateEngine,
         ColorRotate $colorRotate,
-        RequestScopeMatcher $scopeMatcher
+        RequestScopeMatcher $scopeMatcher,
+        RepositoryManager $repositoryManager
     ) {
-        $this->templateEngine = $templateEngine;
-        $this->colorRotate    = $colorRotate;
-        $this->scopeMatcher   = $scopeMatcher;
+        $this->templateEngine    = $templateEngine;
+        $this->colorRotate       = $colorRotate;
+        $this->scopeMatcher      = $scopeMatcher;
+        $this->repositoryManager = $repositoryManager;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function supports($model): bool
+    public function supports($model) : bool
     {
         if (!$model instanceof ContentModel && !($model instanceof Result)) {
             return false;
@@ -97,13 +108,24 @@ final class PanelElementFactory implements ComponentFactory
      *
      * @throws ComponentNotFound If an unsupported element type is given.
      */
-    public function create($model, string $column): Component
+    public function create($model, string $column) : Component
     {
         if (!isset($this->panelElementTypes[$model->type])) {
             throw ComponentNotFound::forModel($model);
         }
 
         $className = $this->panelElementTypes[$model->type];
+
+        if ($className === PanelSingleElement::class) {
+            return new $className(
+                $model,
+                $this->templateEngine,
+                $this->colorRotate,
+                $this->scopeMatcher,
+                $this->repositoryManager,
+                $column
+            );
+        }
 
         return new $className(
             $model,
