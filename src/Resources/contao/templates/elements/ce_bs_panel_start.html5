@@ -3,6 +3,7 @@
         <<?= $this->hl ?> class="mb-0">
             <button class="btn btn-link<?php if (!$this->expanded): ?> collapsed<?php endif ?>"
                     type="button"
+                    role="tab"
                     data-toggle="collapse"
                     data-target="#<?= $this->collapseId ?>"
                     aria-expanded="<?= $this->expanded ? 'true' : 'false' ?>"
@@ -14,6 +15,7 @@
 
     <div id="<?= $this->collapseId ?>"
          class="collapse<?php if ($this->expanded): ?> show<?php endif ?>"
+         role="tabpanel"
          aria-labelledby="<?= $this->headingId ?>"
          <?php if ($this->groupId): ?>data-parent="#<?= $this->groupId ?>"<?php endif ?>>
         <div class="card-body">

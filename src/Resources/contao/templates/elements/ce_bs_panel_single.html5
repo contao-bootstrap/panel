@@ -5,6 +5,7 @@
                     type="button"
                     data-toggle="collapse"
                     data-target="#<?= $this->collapseId ?>"
+                    role="tab"
                     aria-expanded="<?= $this->expanded ? 'true' : 'false' ?>"
                     aria-controls="<?= $this->collapseId ?>">
                 <?= $this->headline ?>
@@ -14,6 +15,7 @@
 
     <div id="<?= $this->collapseId ?>"
          class="collapse<?php if ($this->expanded): ?> show<?php endif ?>"
+         role="tabpanel"
          aria-labelledby="<?= $this->headingId ?>"
          <?php if ($this->groupId): ?>data-parent="#<?= $this->groupId ?>"<?php endif ?>>
         <div class="card-body">
