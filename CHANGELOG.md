@@ -2,10 +2,10 @@
 Changelog
 =========
 
-Unreleased
-----------
+2.1.0 (2019-07-22)
+------------------
 
-[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.0...dev-hotfix/2.1.1)
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.0...2.1.1)
 
 ### Fixed
 
