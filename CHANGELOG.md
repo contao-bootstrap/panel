@@ -2,6 +2,16 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.0...dev-hotfix/2.1.1)
+
+### Fixed
+
+ - Fix broken add image to panel single element
+ - Add missing role attributes to accordion group, panel single and panel start element
+
 2.1.0 (2019-01-29)
 ------------------
 

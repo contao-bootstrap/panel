@@ -8,6 +8,7 @@
             <argument type="service" id="templating" />
             <argument type="service" id="contao_bootstrap.core.helper.color_rotate" />
             <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher" />
+            <argument type="service" id="netzmacht.contao_toolkit.repository_manager" />
             <tag name="netzmacht.contao_toolkit.component.content_element_factory" />
             <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_start" />
             <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_end" />
