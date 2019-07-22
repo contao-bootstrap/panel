@@ -71,6 +71,7 @@ final class PanelSingleElement extends AbstractPanelStartElement
         parent::__construct($model, $templateEngine, $colorRotate, $scopeMatcher, $column);
 
         $this->repositoryManager = $repositoryManager;
+        $this->renderInBackend   = true;
     }
 
     /**

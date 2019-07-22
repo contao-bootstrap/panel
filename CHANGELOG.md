@@ -2,6 +2,15 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.1...hotfix/2.1.2)
+
+### Fixed
+
+ - Panel single element is not rendered in the backend
+
 2.1.0 (2019-07-22)
 ------------------
 

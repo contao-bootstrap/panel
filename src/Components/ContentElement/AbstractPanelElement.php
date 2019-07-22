@@ -46,6 +46,13 @@ abstract class AbstractPanelElement extends AbstractContentElement
     private $scopeMatcher;
 
     /**
+     * Define if content element should be rendered in the backend.
+     *
+     * @var bool
+     */
+    protected $renderInBackend = false;
+
+    /**
      * AbstractContentElement constructor.
      *
      * @param Model|Collection|Result $model          Object model or result.
@@ -74,7 +81,7 @@ abstract class AbstractPanelElement extends AbstractContentElement
      */
     public function generate(): string
     {
-        if ($this->isBackendRequest()) {
+        if (!$this->renderInBackend && $this->isBackendRequest()) {
             return $this->renderBackendView();
         }
 
