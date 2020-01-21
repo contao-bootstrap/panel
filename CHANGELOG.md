@@ -2,7 +2,26 @@
 Changelog
 =========
 
-2.1.0 (2019-07-22)
+Unreleased
+----------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/master...develop)
+
+2.1.2 (2020-01-21)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.1...2.1.2)
+
+### Changed
+
+ - Allow `symfony/templating ^5.0`
+ - Avoid potential security issues of `symfony/dependency-injection`
+
+### Fixed
+
+ - Panel single element is not rendered in the backend
+
+2.1.1 (2019-07-22)
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.0...2.1.1)
