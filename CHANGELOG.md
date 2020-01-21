@@ -5,7 +5,12 @@ Changelog
 Unreleased
 ----------
 
-[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.1...hotfix/2.1.2)
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/master...develop)
+
+2.1.2 (2020-01-21)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.1...2.1.2)
 
 ### Changed
 
