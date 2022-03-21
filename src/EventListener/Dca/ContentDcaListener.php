@@ -32,7 +32,7 @@ final class ContentDcaListener
      *
      * @var ContaoFramework
      */
-    private $framework;
+    private ContaoFramework $framework;
 
     /**
      * Content repository.

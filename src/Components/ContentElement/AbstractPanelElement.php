@@ -36,21 +36,21 @@ abstract class AbstractPanelElement extends AbstractContentElement
      *
      * @var ColorRotate
      */
-    private $colorRotate;
+    private ColorRotate $colorRotate;
 
     /**
      * Request scope matcher.
      *
      * @var RequestScopeMatcher
      */
-    private $scopeMatcher;
+    private RequestScopeMatcher $scopeMatcher;
 
     /**
      * Define if content element should be rendered in the backend.
      *
      * @var bool
      */
-    protected $renderInBackend = false;
+    protected bool $renderInBackend = false;
 
     /**
      * AbstractContentElement constructor.

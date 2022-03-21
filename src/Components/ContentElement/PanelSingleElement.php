@@ -46,7 +46,7 @@ final class PanelSingleElement extends AbstractPanelStartElement
      *
      * @var RepositoryManager
      */
-    private $repositoryManager;
+    private RepositoryManager $repositoryManager;
 
     /**
      * AbstractContentElement constructor.
@@ -83,6 +83,7 @@ final class PanelSingleElement extends AbstractPanelStartElement
 
         // Add an image
         if ($this->get('addImage') && $this->get('singleSRC') != '') {
+            /** @var FilesModel $repository */
             $repository = $this->repositoryManager->getRepository(FilesModel::class);
             $fileModel  = $repository->findByUuid($this->get('singleSRC'));
 
