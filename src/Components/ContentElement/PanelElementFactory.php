@@ -35,7 +35,7 @@ final class PanelElementFactory implements ComponentFactory
      *
      * @var array
      */
-    private $panelElementTypes = [
+    private array $panelElementTypes = [
         'bs_panel_group_start' => PanelGroupStartElement::class,
         'bs_panel_group_end'   => PanelGroupEndElement::class,
         'bs_panel_start'       => PanelStartElement::class,
@@ -48,28 +48,28 @@ final class PanelElementFactory implements ComponentFactory
      *
      * @var TemplateEngine
      */
-    private $templateEngine;
+    private TemplateEngine $templateEngine;
 
     /**
      * Color rotate.
      *
      * @var ColorRotate
      */
-    private $colorRotate;
+    private ColorRotate $colorRotate;
 
     /**
      * Request scope matcher.
      *
      * @var RequestScopeMatcher
      */
-    private $scopeMatcher;
+    private RequestScopeMatcher $scopeMatcher;
 
     /**
      * Repository manager.
      *
      * @var RepositoryManager
      */
-    private $repositoryManager;
+    private RepositoryManager $repositoryManager;
 
     /**
      * PanelElementFactory constructor.
