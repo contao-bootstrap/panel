@@ -1,51 +1,29 @@
 <?php
 
-/**
- * Contao Bootstrap panel.
- *
- * @package    contao-bootstrap
- * @subpackage Panel
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2020 netzmacht David Molineus. All rights reserved.
- * @license    LGPL-3.0-or-later https://github.com/contao-bootstrap/panel/blob/master/LICENSE
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Panel\EventListener\Dca;
 
 use Contao\ContentModel;
 use Contao\CoreBundle\Framework\Adapter;
-use Contao\CoreBundle\Framework\ContaoFrameworkInterface as ContaoFramework;
+use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\DataContainer;
+use Contao\Model\Collection;
 
-/**
- * Class ContentDcaListener
- *
- * @package ContaoBootstrap\Panel\EventListener\Dca
- */
+use function sprintf;
+
 final class ContentDcaListener
 {
-    /**
-     * Contao framework.
-     *
-     * @var ContaoFramework
-     */
-    private $framework;
+    private ContaoFramework $framework;
 
     /**
      * Content repository.
      *
-     * @var Adapter|ContentModel
+     * @var Adapter<ContentModel>
      */
-    private $repository;
+    private Adapter $repository;
 
-    /**
-     * ContentDcaListener constructor.
-     *
-     * @param ContaoFramework $framework Contao framework.
-     */
     public function __construct(ContaoFramework $framework)
     {
         $this->framework  = $framework;
@@ -57,14 +35,14 @@ final class ContentDcaListener
      *
      * @param DataContainer|null $dataContainer Data container driver.
      *
-     * @return array
+     * @return array<int|string,string>
      */
     public function panelGroupOptions($dataContainer = null): array
     {
-        $columns[] = 'tl_content.type = ?';
-        $values[]  = 'bs_panel_group_start';
+        $columns = ['tl_content.type = ?'];
+        $values  = ['bs_panel_group_start'];
 
-        if ($dataContainer) {
+        if ($dataContainer && $dataContainer->activeRecord) {
             $columns[] = 'tl_content.pid = ?';
             $columns[] = 'tl_content.ptable = ?';
             $columns[] = 'tl_content.sorting < ?';
@@ -77,7 +55,7 @@ final class ContentDcaListener
         $collection = $this->repository->findBy($columns, $values, ['order' => 'tl_content.sorting ASC']);
         $options    = [];
 
-        if ($collection) {
+        if ($collection instanceof Collection) {
             foreach ($collection as $model) {
                 $options[$model->id] = sprintf(
                     '%s [%s]',
@@ -93,17 +71,17 @@ final class ContentDcaListener
     /**
      * Generate a panel name if not given.
      *
-     * @param string        $value         Panel name.
+     * @param string|null   $value         Panel name.
      * @param DataContainer $dataContainer Data container driver.
      *
-     * @return string
+     * @Callback(table="tl_content", target="fields.bs_panel_name.save")
      */
-    public function generatePanelName($value, $dataContainer): string
+    public function generatePanelName(?string $value, DataContainer $dataContainer): string
     {
-        if (!$value) {
+        if (! $value && $dataContainer->activeRecord) {
             $value = 'panel_' . $dataContainer->activeRecord->id;
         }
 
-        return $value;
+        return (string) $value;
     }
 }
