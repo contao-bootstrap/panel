@@ -12,6 +12,8 @@ This extension provides Bootstrap integration into Contao.
 Contao-Bootstrap is a modular integration. This extension provides the bootstrap panel into Contao. It uses the default
 accordion element of Contao and extends it with an accordeon group element.
 
+**THIS BUNDLE IS NOT SUPPORTED ANYMORE. USE THE https://github.com/contao-bootstrap/accordion/ FOR BOOTSTRAP 5 INSTEAD**
+
 
 Changelog
 ---------
